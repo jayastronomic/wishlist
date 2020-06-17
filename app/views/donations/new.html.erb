@@ -1,0 +1,15 @@
+<h1>New Donation for Item </h1>
+
+<%= form_for ([@user, @item, @donation]) do |f| %>
+
+<%= f.label :amount, "How much would you like to Donate?" %><br>
+<%= f.number_field :amount %>
+
+<%= f.hidden_field :item_id, value: @item.id %>
+<%= f.hidden_field :user_id, value: @user.id %>
+
+
+
+<%= f.submit "Create Donation"%>
+
+<% end %>

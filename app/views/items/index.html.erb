@@ -1,0 +1,24 @@
+<h1> Wishful Home Page </h1>
+<ul>
+<% @items.each do |item| %>
+   <img src='<%= item.img_url%>' ><br>
+
+    <p><strong>User:</strong></p>
+    <%= link_to item.user.username, user_path(item.user) %><br>
+   
+   <p><strong>Name:</strong></p>
+    <%= item.name %><br>
+
+    <p><strong>Description:</strong></p>
+    <%= item.description %><br>
+
+    <p><strong>Price:</strong></p>
+    $<%= item.price%>.00<br>
+
+    <p><strong>Amount Donated:</strong></p>
+      $<%= Donation.donation_sum(item.donations) %>.00
+    <br>
+    <br>
+    <br>
+    <% end %>
+</ul>

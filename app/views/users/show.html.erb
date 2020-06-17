@@ -1,0 +1,42 @@
+<h1><%= @user.username.capitalize %> Page</h1>
+<p><%= link_to "Add Friend", user_new_friend_path(@user.id) %></p>
+
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+  <% end %>
+  
+<h1> List of Items</h1>
+
+<% @user.items.map do |item| %>
+
+  <img src= "<%= item.img_url %>" ><br>
+
+  <p><strong>Name:</strong></p>
+  <%= item.name %><br>
+
+  <p><strong>Description:</strong></p>
+  <%= item.description %><br>
+
+  <p><strong>Price:</strong></p>
+  <p>$<%= item.price %>.00</p>
+
+  <h4>Amount Donated</h4>
+
+  $<%= Donation.donation_sum(item.donations) %>.00
+  
+   <%# <% x = item.donations.map do |donation| %>
+   <%# <% donation.amount  %> 
+     <%# <%  end %>  
+    <%# <p>$<%= x.sum %>
+
+<p><%= link_to "Donate to Item", new_user_item_donation_path(@user.id, item.id) %></p>
+<br>
+<p>_________________________________________________</p>
+<p>_________________________________________________</p>
+<br>
+<br>
+<% end %>
+
+<p><%= link_to "Add Item", new_user_item_path(@user.id) %></p>
+
+

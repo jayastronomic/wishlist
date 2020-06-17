@@ -1,0 +1,18 @@
+<h1> Create New Item Form </h1>
+
+ <%= form_for ([@user, @item]) do |f| %>
+ <%= f.label :name, "Name of Item:" %><br>
+ <%= f.text_field :name %><br>
+<br>
+ <%= f.label :img_url, "Copy and Paste Image Url:" %><br>
+ <%= f.text_field :img_url%><br>
+<br>
+ <%= f.label :description, "Description of Your Item:" %><br>
+ <%= f.text_area :description %><br>
+<br>
+ <%= f.label :price, "How Much?" %><br>
+ <%= f.number_field :price %><br><br>
+
+<%= f.hidden_field :user_id, value: @user.id %>
+ <%= f.submit "Add Item"%>
+ <% end %>

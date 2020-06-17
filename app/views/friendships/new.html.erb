@@ -1,0 +1,11 @@
+<h1> Add Friend </h1>
+
+<p><strong>Select a Friend to Add:</strong></p>
+
+<%= form_for ([@user, @friendship]) do |f| %>
+
+<%= f.collection_select :user_two_id, @users, :id, :username %>
+<%= f.hidden_field :user_one_id, value: @user.id %>
+
+<%= f.submit "Add Friend" %>
+<% end %>
