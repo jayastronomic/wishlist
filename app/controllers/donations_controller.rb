@@ -9,7 +9,7 @@ class DonationsController < ApplicationController
     def create
         donation = Donation.create(donation_params)
         if donation.valid?
-        redirect_to user_path(1)
+        redirect_to user_path(donation.user)
         else 
             flash[:donation_errors] = donation.errors.full_messages
             redirect_to new_user_item_donation_path

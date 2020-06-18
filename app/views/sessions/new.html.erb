@@ -1,10 +1,14 @@
-<h1>Wish list</h1>
+
 <%= form_tag sessions_path do %>
   <%= label_tag "Username:" %><br>
   <%= text_field_tag :username %><br>
   <%= label_tag "Password:" %><br>
   <%= password_field_tag :password %><br>
   <%= submit_tag "Sign In" %>
+<% end %>
+<br>
+<% if flash[:error] %>
+<%= flash[:error]%><br>
 <% end %>
 
 <p>Don't have an account? <%= link_to "Create an Account!", sign_up_path %></p>

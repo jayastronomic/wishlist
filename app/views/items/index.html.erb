@@ -1,13 +1,15 @@
+
+
 <h1> Wishful Home Page </h1>
 <ul>
 <% @items.each do |item| %>
-   <img src= <%= item.img_url%> ><r>
+   <img src= <%= item.img_url%> >
 
-    <p><strong>User:</strong></p>
-    <%= link_to item.user.username, user_path(item.user) %><br>
+    <p><strong>Donee:</strong>
+    <%= link_to item.user.username, user_path(item.user) %></p>
    
-   <p><strong>Name:</strong></p>
-    <%= item.name %><br>
+   <p><strong>Name of Item:</strong>
+    <%= item.name %></p>
 
     <p><strong>Description:</strong></p>
     <%= item.description %><br>
