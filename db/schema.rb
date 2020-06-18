@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_16_003630) do
+ActiveRecord::Schema.define(version: 2020_06_18_030547) do
 
   create_table "donations", force: :cascade do |t|
     t.integer "amount"
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 2020_06_16_003630) do
     t.string "img_url"
     t.string "description"
     t.integer "price"
-    t.boolean "is_funded"
     t.integer "user_id"
+    t.boolean "is_funded", default: false
   end
 
   create_table "users", force: :cascade do |t|
