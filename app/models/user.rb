@@ -7,8 +7,18 @@ class User < ApplicationRecord
     has_many :donations
     has_many :items
     has_many :items_donated_to, through: :donations, source: :item
+
+    
     has_secure_password
    
+
+    # def password=(secret)
+    #     hash_pass = BCrypt::Password.create(secret)
+    #     self.password_digest = hash_pass
+    # end
+
+    
+
     def all_friends
         self.initiated_friends + self.accepted_friends
     end

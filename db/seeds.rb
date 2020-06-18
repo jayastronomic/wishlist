@@ -1,6 +1,0 @@
-User.create(username: "Nancy" )
-User.create(username: "Jacob")
-User.create(username: "Bruce")
-User.create(username: "Jason")
-User.create(username: "Karen" )
-User.create(username: "Sid" )
