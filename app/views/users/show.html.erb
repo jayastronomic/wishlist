@@ -1,12 +1,17 @@
 
+<%# <h1><%= @user.username.capitalize %> <%# Page</h1> %>
+<%# <p><%= link_to "Add Friend", user_new_friend_path(@user.id) %>
+
 
 <p><%= link_to 'Add Friend', user_new_friend_path(@user.id) %></p>
+
 
 <% if flash[:notice] %>
   <%= flash[:notice] %>
   <% end %>
+
   
-<h1> List of Items</h1>
+<h1><%= @user.username %> Wish List </h1>
 
 <% @user.items.map do |item| %>
 

@@ -1,19 +1,22 @@
 class UsersController < ApplicationController
-    # skip_before_action :auth_user, only: [:new, :create]
+    # skip_before_action :authorized, only: [:new, :create]
+
 
     def index
         @users = User.all
     end
-
 
     def new
         @user = User.new
     end
 
     def create
-        user = User.create(user_params)
-        if user.valid?
-            redirect_to users_path
+
+       user = User.new(user_params)
+        if user.valid? 
+            user.save
+            session[:user_id] = user.id
+            redirect_to root_path
         else
             flash[:user_errors] = user.errors.full_messages
             redirect_to new_user_path
@@ -21,8 +24,10 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find_by_id(params[:id])
-        @users = User.all
+        @user = User.find(params[:id])
+        if session[:user_id]
+        @current_user = User.find(session[:user_id])
+        end
     end
 
     def edit
@@ -30,8 +35,8 @@ class UsersController < ApplicationController
     end
 
     def update
-        user = User.update(user_params)
-        redirect_to user_path(user)
+        current_user = User.update(user_params)
+        redirect_to user_path(current_user)
     end
 
 
@@ -44,9 +49,12 @@ class UsersController < ApplicationController
             :last_name,
             :email,
             :birth_date,
-            :password
+            :password,
+            :password_confirmation
         )
     end
 
-    
+
+
+
 end

@@ -1,4 +1,6 @@
-<h1>Create New User</h1>
+
+
+<h3>Register</h3>
 
 <%if flash[:user_errors]%>
 <%flash[:user_errors].each do |error| %>
@@ -23,8 +25,13 @@
 <%= f.text_field :birth_date %><br>
 <br>
 <%= f.label :password, "Create Password:" %><br>
-<%= f.text_field :password %><br>
+<%= f.password_field :password %><br><br>
+
+ <%= f.label :password_confirmation, "Re-Type Password:" %><br>
+<%= f.password_field :password_confirmation %><br><br>
 
 <%= f.submit "Create Profile" %><br><br>
 
 <% end %>
+
+<p>Already have account? <%= link_to "Sign in!", login_path %></p>

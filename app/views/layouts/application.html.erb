@@ -10,11 +10,20 @@
   </head>
 
   <body>
-  <ul>
-  
-        <li><%= link_to 'Home', root_path %></li>
-        <li><%= link_to  "Find Friends", users_path %></li>
-      
+
+  <ul> 
+  <h1>Wishful</h1>
+
+  <% if logged_in? %>
+  <li><%= link_to 'Home', root_path %></li>
+  <li><%= link_to "Logout", sessions_path, method: :delete %></li>
+  <li><%= link_to  "Find Friends", users_path %></li>
+  <li><%= link_to  "My WishList", user_path(current_user)%>
+  <li><p>Signed is as: <%= current_user.username %> <p></li>
+<% end %>
+        
+        
+     
       
       </ul>
 
