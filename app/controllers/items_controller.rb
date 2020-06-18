@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+skip_before_action :auth_user
     def index
         @items = Item.all
     end

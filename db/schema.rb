@@ -38,8 +38,6 @@ ActiveRecord::Schema.define(version: 2020_06_18_030547) do
     t.string "last_name"
     t.string "email"
     t.string "password_digest"
-    t.datetime "birth_date"
-    t.string "img_url"
   end
 
 end
