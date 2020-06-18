@@ -26,6 +26,8 @@ gem 'bcrypt', '~> 3.1.7'
 #Use for fake data
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
+gem 'bootstrap-sass'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

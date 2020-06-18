@@ -1,4 +1,10 @@
 <h1> Create New Item Form </h1>
+<%if flash[:item_errors]%>
+<%flash[:item_errors].each do |error| %>
+    <p><%= error %></p>
+  <%end%> 
+<%end%>
+
 
  <%= form_for ([@user, @item]) do |f| %>
  <%= f.label :name, "Name of Item:" %><br>

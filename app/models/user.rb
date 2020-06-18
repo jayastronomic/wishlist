@@ -8,6 +8,10 @@ class User < ApplicationRecord
     has_many :items
     has_many :items_donated_to, through: :donations, source: :item
     has_secure_password
+    validates :username, :first_name, :last_name, :email, :birth_date, presence: true
+    validates :username, uniqueness: true
+    validates :email, uniqueness: true
+   
    
     def all_friends
         self.initiated_friends + self.accepted_friends
