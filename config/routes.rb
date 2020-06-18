@@ -9,7 +9,7 @@ delete "sessions", to: "sessions#destroy"
   resources :users, only: [:index,  :create, :show, :edit, :update] do
     get "/add friend", to: "friendships#new", as: "new_friend"
     post "/users/:user_id/friendships", to: "friendships#create", as: "friendships"
-    resources :items, only: [:new, :create] do
+    resources :items, only: [:new, :create, :destroy] do
       resources :donations, only: [:new, :create]
     end
   end

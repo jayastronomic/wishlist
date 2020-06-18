@@ -10,6 +10,10 @@ class User < ApplicationRecord
 
     
     has_secure_password
+    validates :username, :first_name, :last_name, :email, :birth_date, presence: true
+    validates :username, uniqueness: true
+    validates :email, uniqueness: true
+   
    
 
     # def password=(secret)
